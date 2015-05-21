@@ -21,15 +21,12 @@ require_relative "../app.rb"
 #   Student.create(first_name: r[0], last_name: r[1], gender: r[2], birthday: r[3], email: r[4], phone: r[5])
 # end
 
-
-
-# class MigrateStudentNames < ActiveRecord::Base
-#   def migrate
-
-#   end
+# Student.all.each do |s|
+#   s.name = "#{s.first_name} #{s.last_name}"
+#   s.save
 # end
 
 Student.all.each do |s|
-  s.name = "#{s.first_name} #{s.last_name}"
+  s.address = "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state}, #{Faker::Address.postcode}, USA"
   s.save
 end
