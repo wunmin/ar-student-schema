@@ -9,6 +9,14 @@ task "db:create" do
   touch 'db/ar-students.sqlite3'
 end
 
+task "console" do
+  exec 'irb -r./app.rb'
+end
+
+task "db:seed" do
+  exec 'ruby db/seeds.rb'
+end
+
 desc "drop the database"
 task "db:drop" do
   rm_f 'db/ar-students.sqlite3'

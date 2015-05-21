@@ -7,6 +7,8 @@ class Student < ActiveRecord::Base
   validates :age, numericality: {greater_than_or_equal_to: 5}
   validates :phone, format:{ with: /(\d[^\d]*){10,}/,message:"Valid phone number only"}
 
+  belongs_to :teacher
+
   # validates :valid_phone?
 
   # def valid_phone?
