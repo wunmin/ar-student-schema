@@ -2,8 +2,18 @@ require_relative '../../db/config'
 
 class Student < ActiveRecord::Base
 
-  # self.attribute_names = [:id, :first_name, :last_name, :gender, :email, :phone, :birthday, :created_at, :updated_at]
+  validates :email, format: { with: /\w+@\w+\.\w{2,}/, message: "Valid email address only"}
+  validates :email, uniqueness: true
+  validates :age, numericality: {greater_than_or_equal_to: 5}
+  validates :phone, format:{ with: /(\d[^\d]*){10,}/,message:"Valid phone number only"}
 
+  # validates :valid_phone?
+
+  # def valid_phone?
+  #     if self.phone.scan(/\d+/).join.length < 10
+  #         errors.add(:phone, "must contain at least 10 digits, excluding non-numeric characters")
+  #     end
+  # end
 
 # implement your Student model here
   def name
@@ -14,4 +24,5 @@ class Student < ActiveRecord::Base
     now = Date.today
     age = now.year - self.birthday.year - ((now.month > self.birthday.month || (now.month == self.birthday.month && now.day >= self.birthday.day)) ? 0 : 1)
   end
+
 end
