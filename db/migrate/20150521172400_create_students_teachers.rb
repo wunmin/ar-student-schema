@@ -4,7 +4,7 @@ require_relative '../config'
 
 class CreateStudentsTeachers < ActiveRecord::Migration
   def change
-    create_table :student_teachers do |s|
+    create_table :students_teachers do |s|
       s.integer :student_id
       s.integer :teacher_id
       s.datetime :created_at
