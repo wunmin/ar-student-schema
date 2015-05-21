@@ -19,9 +19,9 @@ class Student < ActiveRecord::Base
   # end
 
 # implement your Student model here
-  def name
-    self.first_name + " " + self.last_name
-  end
+  # def name
+  #   self.first_name + " " + self.last_name
+  # end
 
   def age
     now = Date.today
