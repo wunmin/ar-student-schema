@@ -17,6 +17,10 @@ task "db:seed" do
   exec 'ruby db/seeds.rb'
 end
 
+task "db:import" do
+  exec "ruby lib/students_importer.rb"
+end
+
 desc "drop the database"
 task "db:drop" do
   rm_f 'db/ar-students.sqlite3'
